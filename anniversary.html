@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our First Anniversary 💙</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #38bdf8;
+  --green: #34d399;
+  --dark: #041016;
+  --card: #0b1c24;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--dark);
+  color: #e5faff;
+  font-family: Georgia, serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .22;
+  pointer-events: none;
+  z-index: -1;
+  animation: glowMove 8s ease-in-out infinite alternate;
+}
+
+.glow.blue {
+  background: #0284c7;
+  top: 5%;
+  left: -150px;
+}
+
+.glow.green {
+  background: #10b981;
+  bottom: 5%;
+  right: -150px;
+  animation-delay: -4s;
+}
+
+@keyframes glowMove {
+  to {
+    transform: translate(70px, 50px) scale(1.3);
+  }
+}
+
+/* OPENING */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  background: #041016;
+  transition: opacity .9s, visibility .9s;
+}
+
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.eyebrow {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 5px;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.envelope {
+  font-size: 78px;
+  margin: 28px 0;
+  animation: float 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px #38bdf855);
+}
+
+#intro h1 {
+  font-size: clamp(35px, 9vw, 58px);
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+#intro p {
+  color: #94aab6;
+  font: 12px Arial, sans-serif;
+  line-height: 1.9;
+}
+
+.btn {
+  border: 1px solid #38bdf899;
+  border-radius: 30px;
+  padding: 14px 26px;
+  margin-top: 28px;
+  color: white;
+  background: linear-gradient(110deg, #087eaa, #087b5b);
+  box-shadow: 0 0 25px #38bdf822;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #34d39955;
+}
+
+/* BACKGROUND ANIMATIONS */
+
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  border: 1px solid #67e8f955;
+  background: #38bdf80b;
+  border-radius: 50%;
+  animation: rise linear infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  15% { opacity: .65; }
+  85% { opacity: .4; }
+  100% {
+    transform: translateY(-115vh) translateX(45px);
+    opacity: 0;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  padding: 55px 0 45px;
+}
+
+header .eyebrow {
+  line-height: 2;
+}
+
+header h1 {
+  font-size: clamp(43px, 11vw, 78px);
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 25px 0;
+}
+
+header p {
+  color: #8ba7b6;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+.line {
+  height: 1px;
+  width: 75px;
+  margin: 25px auto;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  box-shadow: 0 0 12px #38bdf855;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: normal;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  text-align: center;
+  color: #89a4b3;
+  font: 12px Arial, sans-serif;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: linear-gradient(145deg, #10232d, #09171e);
+  border: 1px solid #38bdf825;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 35px #00000018;
+}
+
+.label {
+  color: var(--green);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.letter {
+  color: #d4e5ec;
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.highlight {
+  color: var(--blue);
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MEMORY TIMELINE */
+
+.timeline {
+  padding-left: 25px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(var(--blue), var(--green), transparent);
+}
+
+.memory {
+  position: relative;
+  padding: 22px;
+  margin-bottom: 20px;
+  background: var(--card);
+  border: 1px solid #ffffff10;
+  border-radius: 15px;
+  transition: transform .3s, border-color .3s;
+}
+
+.memory:hover {
+  transform: translateY(-4px);
+  border-color: #34d39966;
+}
+
+.memory::before {
+  content: "♡";
+  position: absolute;
+  left: -32px;
+  top: 21px;
+  font-size: 17px;
+  color: var(--green);
+  text-shadow: 0 0 10px #34d399;
+}
+
+.date {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 2px;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.memory h3 {
+  font-size: 19px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.memory p {
+  color: #9fb4c0;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.memory img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 18px;
+  border: 1px solid #38bdf822;
+  transition: transform .5s, filter .5s;
+}
+
+.memory img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* PHOTO GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.gallery-item {
+  padding: 8px;
+  border-radius: 13px;
+  background: #0d2029;
+  border: 1px solid #34d39922;
+  overflow: hidden;
+  transition: transform .4s, box-shadow .4s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 22px #38bdf822;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #142b35;
+}
+
+.gallery-item p {
+  text-align: center;
+  color: #a5cbd2;
+  font-size: 12px;
+  padding: 12px 2px 6px;
+}
+
+/* MUSIC */
+
+.music {
+  text-align: center;
+}
+
+.music-icon {
+  font-size: 35px;
+  color: var(--green);
+  animation: musicPulse 2s infinite;
+}
+
+@keyframes musicPulse {
+  50% {
+    transform: scale(1.2);
+    text-shadow: 0 0 22px #34d39999;
+  }
+}
+
+.music h3 {
+  font-weight: normal;
+  margin: 15px 0 10px;
+}
+
+.music p {
+  font: 12px Arial, sans-serif;
+  color: #8ba7b6;
+  line-height: 1.8;
+}
+
+.music button {
+  border: 1px solid #34d39966;
+  border-radius: 25px;
+  padding: 12px 23px;
+  background: #34d39912;
+  color: var(--green);
+  margin-top: 20px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 20px;
+  height: 38px;
+}
+
+/* FINAL MESSAGE */
+
+.closing {
+  text-align: center;
+  padding: 55px 10px 25px;
+}
+
+.big-heart {
+  font-size: 40px;
+  animation: heartbeat 1.6s infinite;
+  filter: drop-shadow(0 0 15px #38bdf855);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+.closing h2 {
+  font-size: clamp(34px, 8vw, 49px);
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 25px 0;
+}
+
+.closing p {
+  color: #a4b9c4;
+  font-size: 13px;
+  line-height: 2;
+}
+
+#endingMessage {
+  display: none;
+  margin-top: 25px;
+  padding: 22px;
+  border: 1px solid #34d39944;
+  border-radius: 14px;
+  background: #34d3990b;
+  color: #a7f3d0;
+  line-height: 2;
+  animation: appear .7s ease;
+}
+
+footer {
+  text-align: center;
+  color: #526b77;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 2px;
+  padding: 35px 0 15px;
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  main { padding: 25px 15px; }
+  .card { padding: 20px; }
+  .letter { font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow blue"></div>
+<div class="glow green"></div>
+<div id="particles"></div>
+
+<!-- OPENING -->
+<div id="intro">
+  <div class="eyebrow">A little world made for you</div>
+  <div class="envelope">💌</div>
+  <h1>For my <span class="gradient-text">baby.</span></h1>
+  <p>One year of us.<br>A thousand memories. One special person.</p>
+  <button class="btn" onclick="openLetter()">Open your letter ♡</button>
+</div>
+
+<main>
+
+<header>
+  <div class="eyebrow">October 25, 2025 · October 25, 2026</div>
+  <h1>Our First<br><span class="gradient-text">Anniversary.</span></h1>
+  <p>365 DAYS OF MEMORIES, LOVE & US</p>
+  <div class="line"></div>
+  <p>TO MY FAVOURITE PERSON<br>JHAM RHYSEL S. CONCHAS ♡</p>
+</header>
+
+<!-- LETTER -->
+<section class="card reveal">
+  <div class="label">01 / A LETTER FOR YOU</div>
+  <div class="letter">hello baby,
+
+i know we are not on good terms right now, but im here to tell you that no matter what we are going through, i still love you the same.
+
+1 year na tayo baby, and you are still my favourite person, and i hope i am still yours too.
+
+i love you more than our misunderstandings, ang dami na nating pinagdaanan, and i dont want our story to end here.
+
+<span class="highlight">these are my favourite dates with you baby,</span></div>
+</section>
+
+<!-- MEMORIES -->
+<section>
+  <h2 class="section-title">Our Little Timeline ♡</h2>
+  <p class="section-sub">Every date has a story.<br>Every story has a piece of my heart.</p>
+
+  <div class="timeline">
+
+    <article class="memory reveal">
+      <div class="date">OCTOBER 25, 2025</div>
+      <h3>Where It All Began ♡</h3>
+      <p>diko parin talaga makalimutan itong araw na ito, dito nagsimula ang lahat, kahit ni-reject moko pero tinanggap mo parin ako kasi magulo ang isip mo nung time na yun, thank you.</p>
+      <img src="pic1.webp" alt="Our first memory">
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">NOVEMBER 22, 2025</div>
+      <h3>Our First Hand Hold 💙</h3>
+      <p>nanood tayo ng stage play neto sa school, sobrang kilig ko nito dahil it was my first time watching stage play with someone and its you, and sa araw na ito, its our first time we held hands together, sobrang kilig ko talaga nito hehe</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">DECEMBER 3, 2025</div>
+      <h3>Under the Fireworks ✨</h3>
+      <p>fiesta dito sa nasugbu, nanood kami ng fireworks together and this is probably one of my favourites memory i ever had with you, the first na you laid your head to my shoulders too</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">FEBRUARY 7, 2026</div>
+      <h3>Your Special Day 🎂</h3>
+      <p>birthday mo nito, i really had a great time with you kasi first time ko makapunta sa bahay nyo at nakakilala ko magulang mo, the first you kissed me on my cheeks too, di parin ako maka move on hanggang ngayon eh</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">MARCH 20, 2026</div>
+      <h3>My Birthday With You ♡</h3>
+      <p>birthday ko neto, sumama ikaw nito and i really had a great time with you and my family, kumain tayo sa waltermart mang inasal, ang saya ko nga nito eh</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">APRIL 5, 2026</div>
+      <h3>A Day With Your Families</h3>
+      <p>ang ganap dito ay yung pagkasal ng ate mo, nandito ako sainyo neto and i really had a great time with you at nabusog panga, first kiss din natin also</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">MAY 25, 2026</div>
+      <h3>Seven Months of Us</h3>
+      <p>our 7th monthsary, ang saya natin dito baby i miss this ang saya ng kagaruhan natin dito at lokohan, kahit hindi na tayo nag date masaya parin ako na kasama kita</p>
+    </article>
+
+    <article class="memory reveal">
+      <div class="date">SEPTEMBER 25, 2026</div>
+      <h3>Eleven Months, One Memory Forever</h3>
+      <p>our 11th monthsary, ito hindi ko talaga makakalimutan, ubos money ko nito pero it was worth it being with you, i sacrificed my own money kasi wala ka na money kulang, i did that for you kasi ayaw kitang hayaang magutom, i hope you appreciate my efforts to you, nag jobile pa tayu dito at street foods, it was all worth my money.</p>
+      <img src="pic2.jpg" alt="Our eleventh monthsary">
+    </article>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="margin-top:55px">
+  <h2 class="section-title">Little Pieces of Us</h2>
+  <p class="section-sub">Moments I wish I could relive. ♡</p>
+
+  <div class="gallery">
+    <div class="gallery-item reveal">
+      <img src="pic1.webp" alt="Our first picture">
+      <p>where it began ♡</p>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="pic2.jpg" alt="Our favorite memory">
+      <p>my favourite person</p>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="pic3.jpeg" alt="Another memory together">
+      <p>one for the memories</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="card music reveal" style="margin-top:35px">
+  <div class="music-icon">♫</div>
+  <h3>Our Little Soundtrack</h3>
+  <p>A song for the memories we made<br>and the ones still waiting for us.</p>
+
+  <button onclick="toggleMusic()" id="musicBtn">▶ Play our song</button>
+
+  <audio id="song" controls loop preload="metadata">
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</section>
+
+<!-- ENDING LETTER -->
+<section class="card reveal">
+  <div class="label">02 / FROM THE BOTTOM OF MY HEART</div>
+  <div class="letter">lahat ng dates na yan baby, hindi ko makakalimutan, kasi kasama kita sa lahat ng yun.
+
+i know minsan ang gulo ko, minsan ang gulo mo, pero baby, sa isang taon na yun, ikaw yung naging pahinga ko.
+
+this anniversary is not just about how long we have been together, it is about how strong we are, and that means we are worth fighting for.
+
+im sorry for the times i hurt you, im sorry for my shortcomings, but thank you for staying, thank you for loving me even on my worst days.
+
+so today, on our 1st anniversary, i just want to say i love you baby, i choose you, not just today but for all the years to come.
+
+lets fix this, lets talk, lets make it work again, kasi ikaw pa rin baby, ikaw pa rin palagi.
+
+<span class="highlight">happy 1st anniversary my baby,</span>
+i love you always,
+
+yours
+
+your baby jb.</div>
+</section>
+
+<!-- FINAL -->
+<section class="closing reveal">
+  <div class="big-heart">💙</div>
+  <h2>Still you.<br><span class="gradient-text">Always you.</span></h2>
+  <p>
+    One year of us, and memories I will always treasure.<br>
+    I hope we can listen, understand, and find our way forward.<br>
+    One step at a time, together.
+  </p>
+
+  <button class="btn" onclick="showEnding()">One last little message ♡</button>
+
+  <div id="endingMessage">
+    Thank you for being part of my life and my story.
+    I hope we can talk, understand each other, and make
+    beautiful memories together again. No pressure, just
+    a little reminder that you are loved. 💚
+  </div>
+
+  <p style="margin-top:25px;color:#34d399">— your baby jb ♡</p>
+</section>
+
+<footer>MADE WITH LOVE · OCTOBER 25, 2026</footer>
+
+</main>
+
+<script>
+// FLOATING BUBBLES
+const particles = document.getElementById("particles");
+
+for (let i = 0; i < 24; i++) {
+  const bubble = document.createElement("span");
+  bubble.className = "bubble";
+
+  const size = 8 + Math.random() * 24;
+
+  bubble.style.width = size + "px";
+  bubble.style.height = size + "px";
+  bubble.style.left = Math.random() * 100 + "%";
+  bubble.style.animationDuration = (8 + Math.random() * 14) + "s";
+  bubble.style.animationDelay = (-Math.random() * 20) + "s";
+
+  particles.appendChild(bubble);
+}
+
+// OPEN LETTER
+function openLetter() {
+  document.getElementById("intro").classList.add("hide");
+  createHearts();
+}
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(item => {
+  observer.observe(item);
+});
+
+// FLOATING HEARTS
+function createHearts() {
+  const symbols = ["♡", "💙", "💚", "✦"];
+
+  for (let i = 0; i < 22; i++) {
+    const heart = document.createElement("span");
+
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize = (14 + Math.random() * 16) + "px";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "30";
+    heart.style.animation = "rise " + (4 + Math.random() * 4) + "s linear forwards";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8500);
+  }
+}
+
+// MUSIC PLAYER
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+  if (song.paused) {
+    song.play().then(() => {
+      musicBtn.textContent = "❚❚ Pause our song";
+    }).catch(() => {
+      alert("Check mo kung nasa same folder ang song.mp3, pre! 💙");
+    });
+  } else {
+    song.pause();
+    musicBtn.textContent = "▶ Play our song";
+  }
+}
+
+song.addEventListener("play", () => {
+  musicBtn.textContent = "❚❚ Pause our song";
+});
+
+song.addEventListener("pause", () => {
+  musicBtn.textContent = "▶ Play our song";
+});
+
+// LAST MESSAGE
+function showEnding() {
+  const message = document.getElementById("endingMessage");
+
+  message.style.display = "block";
+  createHearts();
+
+  message.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+</script>
+
+</body>
+</html>
